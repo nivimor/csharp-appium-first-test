@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+/TestResults
+/packages
+/appium/bin
+/appium/bin/Debug
+/appium/obj
+/appium/obj/Debug
