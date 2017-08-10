@@ -28,7 +28,6 @@ namespace appium
         {
 
             dc.SetCapability("platform", "android");
-            dc.SetCapability(MobileCapabilityType.DeviceName, "andropid");
             dc.SetCapability(AndroidMobileCapabilityType.AppPackage, "com.experitest.ExperiBank");
             dc.SetCapability(AndroidMobileCapabilityType.AppActivity, ".LoginActivity");
             driver = new NewAndroidDriver(new Uri("http://localhost:4723/wd/hub"), dc);
