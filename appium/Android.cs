@@ -37,19 +37,7 @@ namespace appium
         [Test()]
         public void TestUntitled()
         {
-            
-            TestContext.WriteLine("----- Last  -----");
-            TestContext.WriteLine(driver.Manage().Logs.AvailableLogTypes);
-            System.Collections.ObjectModel.ReadOnlyCollection<String> avLogs = driver.Manage().Logs.AvailableLogTypes;
-            System.Collections.ObjectModel.ReadOnlyCollection<LogEntry> logs = driver.Manage().Logs.GetLog("logcat");
-
-            foreach (String log in driver.Manage().Logs.AvailableLogTypes)
-            {
-                TestContext.WriteLine(log);
-            }
-
-            //TestContext.WriteLine("----- TEST -----");
-            
+           
         }
 
         [TearDown()]
