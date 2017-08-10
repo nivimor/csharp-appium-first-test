@@ -18,7 +18,10 @@ namespace appium
     [TestFixture]
     //[NUnit.Framework.Ignore("Android")]
     public class Android
-    {
+    {   
+        private string reportDirectory = "reports";
+        private string reportFormat = "xml";
+        private string testName = "Untitled";
         protected NewAndroidDriver driver = null;
 
         DesiredCapabilities dc = new DesiredCapabilities();
@@ -28,6 +31,10 @@ namespace appium
         {
 
             dc.SetCapability("platform", "android");
+            dc.SetCapability("reportDirectory", reportDirectory);
+            dc.SetCapability("reportFormat", reportFormat);
+            dc.SetCapability("testName", testName);
+            
             dc.SetCapability(AndroidMobileCapabilityType.AppPackage, "com.experitest.ExperiBank");
             dc.SetCapability(AndroidMobileCapabilityType.AppActivity, ".LoginActivity");
             driver = new NewAndroidDriver(new Uri("http://localhost:4723/wd/hub"), dc);
