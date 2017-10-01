@@ -5,3 +5,7 @@
 /appium/bin/Debug
 /appium/obj
 /appium/obj/Debug
+/appium/Properties
+/appium/NewAndroidDriver.cs
+/appium/NewAndroidDriver.cs
+/appium/NewIOSDriver.cs

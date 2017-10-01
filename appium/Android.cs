@@ -16,13 +16,12 @@ using OpenQA.Selenium.Appium.Service.Options;
 namespace appium
 {
     [TestFixture]
-    //[NUnit.Framework.Ignore("Android")]
     public class Android
-    {   
-        private string reportDirectory = "reports";
-        private string reportFormat = "xml";
-        private string testName = "Untitled";
-        protected NewAndroidDriver driver = null;
+    {
+        private string projectName = "reports";
+        private string accessKey = "";
+   
+        protected AndroidDriver<AndroidElement> driver = null;
 
         DesiredCapabilities dc = new DesiredCapabilities();
 
@@ -30,27 +29,29 @@ namespace appium
         public void SetupTest()
         {
 
-            dc.SetCapability("platform", "android");
-            dc.SetCapability("reportDirectory", reportDirectory);
-            dc.SetCapability("reportFormat", reportFormat);
-            dc.SetCapability("testName", testName);
+            dc.SetCapability("accessKey", accessKey);
+            dc.SetCapability("projectName", projectName);
+            //install the app on the device
+            dc.SetCapability(MobileCapabilityType.APP, "cloud:<BUNDLE_ID>");
             
-            dc.SetCapability(AndroidMobileCapabilityType.AppPackage, "com.experitest.ExperiBank");
-            dc.SetCapability(AndroidMobileCapabilityType.AppActivity, ".LoginActivity");
-            driver = new NewAndroidDriver(new Uri("http://localhost:4723/wd/hub"), dc);
+            dc.SetCapability("platformName", "Android");
+            //launch the app
+            dc.SetCapability(AndroidMobileCapabilityType.AppPackage, "<BUNDLE_ID>");
+            dc.SetCapability(AndroidMobileCapabilityType.AppActivity, "<ACTIVITY>");
+            driver = new AndroidDriver<AndroidElement>(new Uri("https://cloud.experitest.com:443/wd/hub"), dc);
 
         }
 
         [Test()]
         public void TestUntitled()
         {
-           
+
         }
 
         [TearDown()]
         public void TearDown()
         {
-
+            driver.Lock();
             driver.Quit();
         }
     }
