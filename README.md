@@ -1,2 +1,2 @@
-# appium-log-.net
-Demo for getting Appium Studio's server logs
+# csharp-appium-first-test
+
